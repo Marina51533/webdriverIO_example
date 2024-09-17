@@ -1,0 +1,26 @@
+name: Simple workflow
+on: push
+jobs:
+  first-job: 
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout the repository
+      uses: actions/checkout@v3
+
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20' 
+
+    - name: Install dependencies
+      run: npm install
+
+    - name: Run WebdriverIO tests
+      run: npm run wdio
+
+    - name: Upload Allure results
+      uses: actions/upload-artifact@v3
+      with:
+        name: allure-results
+        path: allure-results
