@@ -11,13 +11,13 @@ export const config: WebdriverIO.Config = {
   maxInstances: 10,
 
   capabilities: [
-    {
-      // Capabilities for Chrome
-      browserName: "chrome",
-      "goog:chromeOptions": {
-        args: ["--headless", "--disable-gpu"],
-      },
-    },
+    // {
+    //   // Capabilities for Chrome
+    //   browserName: "chrome",
+    //   "goog:chromeOptions": {
+    //     args: ["--headless", "--disable-gpu"],
+    //   },
+    // },
     {
       // Capabilities for Firefox browser
       browserName: "firefox",
