@@ -5,7 +5,7 @@ import { expect } from "chai";
 describe("Performing operations on MoroSystems via Google", () => {
   before(async () => {
     await googleSearchPage.open();
-    await googleSearchPage.clickAcceptCoockiesBtn();
+    await googleSearchPage.clickAcceptCookiesBtn();
   });
 
   it("Should perform a search and navigate to MoroSystems", async () => {
@@ -25,7 +25,7 @@ describe("Performing operations on MoroSystems via Google", () => {
   it("Should redirect to Career/Kariera page", async () => {
     // Open Kariera Page and check for icon presence
     await careerPage.open();
-    const isIconDisplayed = await careerPage.morosustemIcon.isDisplayed();
+    const isIconDisplayed = await careerPage.morosystemIcon.isDisplayed();
     expect(isIconDisplayed).to.be.true
   });
 });

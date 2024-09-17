@@ -3,7 +3,7 @@ class GooglePage {
   get searchInput() {
     return $('textarea[name="q"]');
   }
-  get acceptCoockiesBtn() {
+  get acceptCookiesBtn() {
     return $('//button//div[contains(text(), "Přijmout vše")]');
   }
 
@@ -22,8 +22,7 @@ class GooglePage {
 
   // Method to perform search
   async search(query: string) {
-    this.searchInput.click();
-    this.searchInput.setValue(query);
+    await this.searchInput.setValue(query);
     await browser.pause(3000);
     browser.keys("Enter"); // Simulate hitting the 'Enter' key
   }
@@ -32,16 +31,21 @@ class GooglePage {
     await this.resultsList.waitForExist({ timeout: 4000 });
     return this.resultsList.isDisplayed();
   }
-
+// method to display results
   async clickFirstResult() {
-    this.morosystemsLink.click();
-    await browser.pause(2000);
+    await this.morosystemsLink.waitForClickable({ timeout: 5000 });
+    await this.morosystemsLink.click();
   }
 
-  async clickAcceptCoockiesBtn() {
-    if (await this.acceptCoockiesBtn.isExisting()) {
-      await this.acceptCoockiesBtn.click();
-    }
+  async clickAcceptCookiesBtn() {
+   try {
+     if (await this.acceptCookiesBtn.isExisting()) {
+       await this.acceptCookiesBtn.waitForClickable({ timeout: 5000 });
+       await this.acceptCookiesBtn.click();
+     }
+   } catch (error) {
+     console.error("Failed to click 'Accept Cookies' button", error);
+   }
   }
 }
 

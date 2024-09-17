@@ -3,12 +3,12 @@ import Page from "./page";
 class KarieraPage extends Page{
   // define elements
 
-  get morosustemIcon(){
+  get morosystemIcon(){
     return $('img[alt="MOROSYSTEMS"]')
   }
 
  async open() {
-        await super.open('kariera')       //this will append `kariera` to the baseUrl to form complete URL
+        await super.open('kariera') //this will append `kariera` to the baseUrl to form complete URL
     }
 }
 
