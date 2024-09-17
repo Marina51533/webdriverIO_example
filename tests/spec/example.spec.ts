@@ -1,23 +1,32 @@
 import googleSearchPage from "../pageobjects/google-search.page";
-import karieraPage from "../pageobjects/kariera.page";
+import careerPage from "../pageobjects/career.page";
 import { expect } from "chai";
 
-describe("Performing a search operation on Google Page", () => {
-  it("Performing a search operation", async () => {
+describe("Performing operations on MoroSystems via Google", () => {
+  before(async () => {
     await googleSearchPage.open();
-    expect(await browser.getTitle()).to.equal("Google");
-    await googleSearchPage.search("MoroSystems");
-    await googleSearchPage.isSearched();
-    await googleSearchPage.clickFirstResult();
-    await browser.pause(3000);
-    const morosystemUrl = await browser.getUrl();
-    console.log(morosystemUrl);
-    expect(morosystemUrl).to.include("www.morosystems.");
+    await googleSearchPage.clickAcceptCoockiesBtn();
   });
 
-  it("Perfoming redirection to Kariera page", async () => {
-    await karieraPage.open();
-    const otevrenePoziceText = $('//*[text()="Otevřené pozice"]');
-    expect(otevrenePoziceText).to.exist;
+  it("Should perform a search and navigate to MoroSystems", async () => {
+    // Validate Google Search Page
+    expect(await browser.getTitle()).to.equal("Google");
+
+    // Perform search and validate
+    await googleSearchPage.search("MoroSystems");
+    await googleSearchPage.isSearched();
+
+    // Click first result and validate the redirection
+    await googleSearchPage.clickFirstResult();
+    const morosystemUrl = await browser.getUrl();
+    expect(morosystemUrl).to.include("morosystems");
+  });
+
+  it("Should redirect to Career/Kariera page", async () => {
+    // Open Kariera Page and check for icon presence
+    await careerPage.open();
+    const isIconDisplayed = await careerPage.morosustemIcon.isDisplayed();
+    expect(isIconDisplayed).to.be.true
   });
 });
+

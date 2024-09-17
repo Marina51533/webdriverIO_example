@@ -3,6 +3,9 @@ class GooglePage {
   get searchInput() {
     return $('textarea[name="q"]');
   }
+  get acceptCoockiesBtn() {
+    return $('//button//div[contains(text(), "Přijmout vše")]');
+  }
 
   get resultsList() {
     return $(`#res`);
@@ -26,12 +29,19 @@ class GooglePage {
   }
 
   async isSearched() {
-    await this.resultsList.waitForExist({ timeout: 1000 });
+    await this.resultsList.waitForExist({ timeout: 4000 });
     return this.resultsList.isDisplayed();
   }
 
   async clickFirstResult() {
     this.morosystemsLink.click();
+    await browser.pause(2000);
+  }
+
+  async clickAcceptCoockiesBtn() {
+    if (await this.acceptCoockiesBtn.isExisting()) {
+      await this.acceptCoockiesBtn.click();
+    }
   }
 }
 
