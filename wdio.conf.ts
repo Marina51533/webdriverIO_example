@@ -22,10 +22,6 @@ export const config: WebdriverIO.Config = {
       // Capabilities for Firefox
       browserName: "firefox",
     },
-    // {
-    //   // Capabilities for Microsoft Edge
-    //   browserName: "MicrosoftEdge",
-    // },
   ],
 
   //

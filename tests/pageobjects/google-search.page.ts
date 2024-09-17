@@ -7,12 +7,16 @@ class GooglePage {
     return $('//button//div[contains(text(), "Přijmout vše")]');
   }
 
+  get acceptCookiesBtnEng() {
+    return $('//button//div[contains(text(), "Accept all")]');
+  }
+
   get resultsList() {
     return $(`#res`);
   }
 
   get morosystemsLink() {
-    return $("h3");
+    return $("a*=MoroSystems");
   }
 
   // methods
@@ -31,21 +35,22 @@ class GooglePage {
     await this.resultsList.waitForExist({ timeout: 4000 });
     return this.resultsList.isDisplayed();
   }
-// method to display results
+  // method to display results
   async clickFirstResult() {
     await this.morosystemsLink.waitForClickable({ timeout: 5000 });
     await this.morosystemsLink.click();
   }
 
   async clickAcceptCookiesBtn() {
-   try {
-     if (await this.acceptCookiesBtn.isExisting()) {
-       await this.acceptCookiesBtn.waitForClickable({ timeout: 5000 });
-       await this.acceptCookiesBtn.click();
-     }
-   } catch (error) {
-     console.error("Failed to click 'Accept Cookies' button", error);
-   }
+    if (await this.acceptCookiesBtn.isExisting()) {
+      await this.acceptCookiesBtn.waitForClickable({ timeout: 5000 });
+      await this.acceptCookiesBtn.click();
+    } else if (await this.acceptCookiesBtnEng.isExisting()) {
+      await this.acceptCookiesBtnEng.waitForClickable({ timeout: 5000 });
+      await this.acceptCookiesBtnEng.click();
+    } else {
+      console.log("No Accept Cookies button found.");
+    }
   }
 }
 
