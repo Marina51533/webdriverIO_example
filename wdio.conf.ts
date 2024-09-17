@@ -19,8 +19,11 @@ export const config: WebdriverIO.Config = {
     //   },
     // },
     {
-      // Capabilities for Firefox 
+      // Capabilities for Firefox
       browserName: "firefox",
+      "moz:firefoxOptions": {
+        args: ["-headless"],
+      },
     },
   ],
 
