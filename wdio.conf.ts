@@ -11,11 +11,11 @@ export const config: WebdriverIO.Config = {
 
   capabilities: [
     {
-    //   // Capabilities for Chrome
+      // Capabilities for Chrome
       browserName: "chrome",
-    //   "goog:chromeOptions": {
-    //     args: ["--headless", "--disable-gpu"],
-    //   },
+      "goog:chromeOptions": {
+        args: ["--headless", "--disable-gpu"],
+      },
     },
     {
       // Capabilities for Firefox
