@@ -19,7 +19,7 @@ export const config: WebdriverIO.Config = {
       },
     },
     {
-      // Capabilities for Firefox
+      // Capabilities for Firefox browser
       browserName: "firefox",
     },
   ],
