@@ -61,3 +61,16 @@ To open the report in a browser and view the detailed test results, use the foll
 ```
 
 This will start a local server and automatically open the Allure report in your default web browser.
+
+## GitHub Actions setup
+
+To automate the execution of your WebdriverIO tests on every push, you can set up GitHub Actions. The `.yaml` file for this configuration can be found in your repository under `.github/workflows`. Here's a step-by-step guide to configure it:
+
+**Create GitHub Actions Workflow**
+In your repository, navigate to `.github/workflows` and create a new `.yml` file, if it does not already exist.
+
+**Example YAML File**
+You can reference the YAML file already published in my repository under `.github/workflows`
+
+**Running the Script**
+Once the `.yml` file is added to `.github/workflows`, the tests will automatically run on every `push` to the repository.
