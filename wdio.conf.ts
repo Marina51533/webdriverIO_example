@@ -17,13 +17,13 @@ export const config: WebdriverIO.Config = {
         args: ["--headless", "--disable-gpu"],
       },
     },
-    {
+    // {
       // Capabilities for Firefox browser
-      browserName: "firefox",
-      "moz:firefoxOptions": {
-        args: ["-headless"],
-      },
-    },
+    //   browserName: "firefox",
+    //   "moz:firefoxOptions": {
+    //     args: ["-headless"],
+    //   },
+    // },
   ],
 
   //
