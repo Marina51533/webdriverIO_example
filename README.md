@@ -6,8 +6,12 @@ This project demonstrates end-to-end testing using **WebdriverIO**. It includes 
 
 Make sure you have the following installed before cloning and running the project:
 
-- [Node.js](https://nodejs.org/en/download/) (v12 or higher)
-- [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+* [Node.js](https://nodejs.org/en/download/) (v12 or higher)
+* [npm](https://www.npmjs.com/get-npm) (comes with Node.js)
+
+For Report:
+
+* [Java ](https://www.java.com/en/download/)version 8 or above
 
 ## Getting Started
 
@@ -42,9 +46,24 @@ This command will initiate the WebdriverIO test runner based on the configuratio
 
 ## Allure Reports
 
-To generate and view the Allure report after running the tests, follow these steps:
+To generate and view the [Allure report](https://allurereport.org/docs/install-for-nodejs/) after running the tests, follow these steps:
 
-**1. Generate Allure Report**:
+**1. Install Allure**:
+
+In a terminal, run this commands:
+
+```bash
+
+
+npm install -g allure-commandline --save-dev
+```
+
+
+Run this command to see if it reports the latest version:
+
+`allure --version`
+
+**2. Generate Allure Report**:
 
 After the test run is complete, generate the Allure report using the following command:
 
@@ -52,7 +71,7 @@ After the test run is complete, generate the Allure report using the following c
 allure generate allure-results --clean -o allure-report
 ```
 
-**2. View Allure Report** :
+**3. View Allure Report** :
 
 To open the report in a browser and view the detailed test results, use the following command:
 
