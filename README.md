@@ -46,37 +46,20 @@ This command will initiate the WebdriverIO test runner based on the configuratio
 
 ## Allure Reports
 
-To generate and view the [Allure report](https://allurereport.org/docs/install-for-nodejs/) after running the tests, follow these steps:
-
-**1. Install Allure**:
-
-In a terminal, run this commands:
-
-```bash
-
-
-npm install -g allure-commandline --save-dev
-```
-
-
-Run this command to see if it reports the latest version:
-
-`allure --version`
-
-**2. Generate Allure Report**:
+**1. Generate [Allure Report](https://allurereport.org/docs/install/)**:
 
 After the test run is complete, generate the Allure report using the following command:
 
 ```bash
-allure generate allure-results --clean -o allure-report
+npm run test:report
 ```
 
-**3. View Allure Report** :
+**2. View Allure Report** :
 
 To open the report in a browser and view the detailed test results, use the following command:
 
 ```bash
-   allure serve allure-results
+  npm run test:report:open
 ```
 
 This will start a local server and automatically open the Allure report in your default web browser.
